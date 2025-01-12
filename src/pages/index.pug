@@ -14,7 +14,7 @@ html(lang="en")
                 
     main
       //- div(class="l-hero")
-      .l-hero
+      .l-hero(data-aos="fade" data-aos-offset="0")
         .swiper.l-hero__swiper
           .swiper-wrapper
             .swiper-slide.l-hero__slide
@@ -75,7 +75,7 @@ html(lang="en")
 
       section#lineup.--gradient.l-lineup
         .container
-          h2.o-section-title LINEUP-2
+          h2.o-section-title(data-aos="fade-right") LINEUP-2
             span.u-text-lg MEGAPORT FESTIVAL
 
           .row.--gap-md
@@ -85,7 +85,7 @@ html(lang="en")
                 let col = 'col-lg-4 col-md-6';
                 if (index === 0) col = 'col-md-5'
                 if (index === 1) col = 'col-md-7'
-              .l-lineup__wrap(class=col)
+              .l-lineup__wrap(class=col data-aos="fade-up")
                 +ArtistCard(item)
 
       section#news.l-home-news
@@ -95,11 +95,11 @@ html(lang="en")
           iconify-icon.u-icon(icon="fa-solid:arrow-right")
 
         .container
-          h2.o-section-title.u-text-center
+          h2.o-section-title.u-text-center(data-aos="fade-up")
             span NEWS
             span.u-text-lg MEGAPORT FESTIVAL
 
-          .swiper.l-home-news__swiper
+          .swiper.l-home-news__swiper(data-aos="fade-up")
             .swiper-wrapper
               //- 本身是 pug 語法，所以前面不用加 - 橫線
               each item, index in newsList
@@ -113,23 +113,23 @@ html(lang="en")
       section#about.--gradient.l-about
         .container
           .u-mb-80
-            h2.u-text-4xl.u-color-secondary ABOUT
+            h2.u-text-4xl.u-color-secondary(data-aos="fade-right") ABOUT
               span.u-text-lg MEGAPORT FESTIVAL
 
         .container.--align-left
           .row
-            .col-md-7.order-md-0.order-2
+            .col-md-7.order-md-0.order-2(data-aos="fade-right")
               .l-about__img-mask
                 img.u-object-fit.l-about__img(src="img/about/about.jpg", alt="關於大港")
             .col-md-5.order-md-0.order-1
               .l-about__content-wrap
-                .l-about__content.u-mb-64
+                .l-about__content.u-mb-64(data-aos="fade-up")
                   h3.u-text-2xl.u-mb-16 2022 年即將邁入第十三屆的《大港開唱》
                   p.u-fw-500 每年三月於高雄舉辦的大型音樂祭典，受到全台灣及日本香港年輕觀眾的喜愛，近年已成為台灣最具指標性的大型戶外音樂祭活動。
-                .l-about__content
+                .l-about__content(data-aos="fade-up")
                   h3.u-text-2xl.u-mb-16 「人生」與「音樂」
                   p.u-fw-500 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。也因如此，大港總是邀請有著豐富人生歷程的知名藝人及業界前輩演出，也會與新一代的樂團或藝人一起合作演出，交融出世代之間的化學效應，往往成為當年度為人津津樂道的經典現場...
-                .u-mt-64
+                .u-mt-64(data-aos="fade")
                   +Btn({
                     href: 'about.html',
                     align: 'right'
