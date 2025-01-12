@@ -23,6 +23,10 @@ body
   letter-spacing: 0.1rem
   line-height: 1.7
   color: var(--color-gray-light)
+  transition: background 0.5s
+  &.is-news-active
+    background-color: var(--color-primary)
+    background-image: none
 
 /* ----------------------------------- */
 /* ------ Reset ------ */
@@ -116,3 +120,11 @@ section
   &.--gap
     --bs-gutter-x: var(--spacing-24)
     --bs-gutter-y: var(--spacing-24)
+
+.js-lazy
+  min-width: 100%
+  background-image: linear-gradient(to right, var(--color-skeleton), var(--color-skeleton-end))
+  // background-color: var(--color-skeleton)
+  &.loaded, &.error
+    min-width: 0
+    background-image: none

@@ -19,15 +19,15 @@ html(lang="en")
           .swiper-wrapper
             .swiper-slide.l-hero__slide
               .l-hero__img-mask
-                img.u-object-fit(src="img/banner/banner-img01.jpg", alt="大港開唱 hero 圖片")
+                img.u-object-fit.js-lazy(data-src="img/banner/banner-img01.jpg", alt="大港開唱 hero 圖片")
               h2.l-hero__slogan 這是 HERO 文字1
             .swiper-slide.l-hero__slide
               .l-hero__img-mask
-                img.u-object-fit(src="img/banner/banner-img02.jpg", alt="大港開唱 hero 圖片")
+                img.u-object-fit.js-lazy(data-src="img/banner/banner-img02.jpg", alt="大港開唱 hero 圖片")
               h2.l-hero__slogan 這是 HERO 文字2
             .swiper-slide.l-hero__slide
               .l-hero__img-mask
-                img.u-object-fit(src="img/banner/banner-img03.jpg", alt="大港開唱 hero 圖片")
+                img.u-object-fit.js-lazy(data-src="img/banner/banner-img03.jpg", alt="大港開唱 hero 圖片")
               h2.l-hero__slogan 這是 HERO 文字3
 
       //- .l-lineup
@@ -120,7 +120,7 @@ html(lang="en")
           .row
             .col-md-7.order-md-0.order-2(data-aos="fade-right")
               .l-about__img-mask
-                img.u-object-fit.l-about__img(src="img/about/about.jpg", alt="關於大港")
+                img.u-object-fit.js-lazy.l-about__img(data-src="img/about/about.jpg", alt="關於大港")
             .col-md-5.order-md-0.order-1
               .l-about__content-wrap
                 .l-about__content.u-mb-64(data-aos="fade-up")

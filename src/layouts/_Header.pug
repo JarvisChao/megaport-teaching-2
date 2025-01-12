@@ -20,17 +20,23 @@ header.l-header
   a.l-header__logo-mask(href=basePath)
     img(src=`${basePath}/img/logo/logo.svg`, alt="大港開唱 Logo")
 
-  input#burger-switcher(type="checkbox" hidden)
+  //- input#burger-switcher(type="checkbox" hidden)
 
   //- button 標籤會影響 label 作用，所以直接改 label 標籤
   //- button.o-burger.l-header__burger
-  label.o-burger.l-header__burger(for="burger-switcher")
+  //- label.o-burger.l-header__burger(for="burger-switcher")
+  //-   .o-burger__wrap
+  //-     .o-burger__line
+  //-     .o-burger__line
+  //-     .o-burger__line
+
+  button.o-burger.l-header__burger(onclick="toggleNav()")
     .o-burger__wrap
       .o-burger__line
       .o-burger__line
       .o-burger__line
 
-  nav.c-nav
+  nav.c-nav(data-lenis-prevent)
     .c-nav__menu
       ul.c-nav__btn-box
         li.c-nav__btn-wrap

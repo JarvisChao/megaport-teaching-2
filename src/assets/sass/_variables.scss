@@ -142,4 +142,8 @@ $spacing-prefixes: (
   --color-white: #fff;
   --color-white-rgb: 255, 255, 255;
   --color-white-40: rgba(var(--color-white-rgb), 0.4);
+
+  --color-skeleton: var(--color-gray-mid-40);
+  --color-skeleton-end: var(--color-gray-mid);
+  
 }

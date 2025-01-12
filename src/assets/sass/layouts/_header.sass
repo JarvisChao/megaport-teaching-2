@@ -94,6 +94,8 @@
     // 因為 a 標籤有設定預設 hover 顏色繼承
     // 所以有自動套到 hover 時的 var(--color-gray-light)
     transition: color 0.3s
+    &.is-active
+      color: var(--color-gray-light)
     // 離原樣式近，設定起來直觀(預處理器的優勢)
     // 缺點是編譯成 css 後會有很多個 @media，但其實佔的容量影響不大
     +media(xxl)
@@ -106,7 +108,7 @@
     //   color: var(--color-black)
     //   &::before
     //     opacity: 1
-    &:hover::before
+    &:hover::before, &.is-active::before
       opacity: 1
       // transition: opacity 0.3s
     &::before, &::after

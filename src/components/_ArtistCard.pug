@@ -18,4 +18,4 @@ mixin ArtistCard(options)
     a.c-artist-card-2__wrap(href=props.link)
       h3.u-text-xl.u-fw-900 #{props.name}
       .c-artist-card-2__img-mask
-        img(src=props.img, alt=props.name)
+        img.js-lazy(data-src=props.img, alt=props.name)
