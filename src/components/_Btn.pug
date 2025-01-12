@@ -1,0 +1,21 @@
+mixin Btn(options)
+  -
+    // Object.assign 用來合併預設值及傳進來的 options 值
+    const props = Object.assign({
+      // 預設值
+      href: '##',
+      target: undefined,
+      align: '' // right, left, center
+    }, options);
+
+    const classes = [
+      props.align ? `--align-${props.align}` : ''
+    ];
+  .o-btn(class=classes.join(' '))
+    a.o-btn__link(href=props.href target=props.target)
+      //- 類似前端框架的 slot 插槽
+      if block
+        block
+      else
+        | MORE
+      

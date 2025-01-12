@@ -1,0 +1,27 @@
+include ./_Btn.pug
+
+mixin Card(options, index)
+  -
+    // Object.assign 用來合併預設值及傳進來的 options 值
+    // Object.assign(預設物件, 欲合併的物件)
+    const props = Object.assign({
+      // 預設值
+      date: '',
+      title: '',
+      content: '',
+      img: '',
+      link: `${basePath}/news/detail/${index}.html`
+    }, options);
+
+  article.c-card
+    span.u-text-lg.u-fw-900.c-card__date #{props.date}
+    .c-card__wrap
+      a.u-img-ratio.c-card__img-mask(href=props.link)
+        img.u-object-fit.--abs(src=props.img, alt=props.title)
+      .c-card__body
+        h3.u-text-md #{props.title}
+        p.u-line-clamp-2.c-card__desc #{props.description}
+        +Btn({
+          href: props.link,
+          align: 'right'
+        })

@@ -1,0 +1,145 @@
+// Spacing
+$spacing-map: (
+  160: 24vw,
+  120: 20vw,
+  104: 19vw,
+  96: 18vw,
+  88: 17vw,
+  80: 16vw,
+  72: 15vw,
+  64: 14vw,
+  56: 12vw,
+  48: 10vw,
+  40: 8vw,
+  32: 6vw,
+  24: 4vw,
+  16: 3vw,
+  12: 2vw,
+  8: null,
+  4: null,
+  2: null,
+  0: null,
+  auto: null
+);
+$spacing-prefixes: (
+  p: padding,
+  px: padding-left padding-right,
+  py: padding-top padding-bottom,
+  pl: padding-left,
+  pr: padding-right,
+  pt: padding-top,
+  pb: padding-bottom,
+  m: margin,
+  mx: margin-left margin-right,
+  my: margin-top margin-bottom,
+  ml: margin-left,
+  mr: margin-right,
+  mt: margin-top,
+  mb: margin-bottom
+);
+
+:root {
+  // Spacing
+  @each $spacing, $vw in $spacing-map {
+    @if ($spacing == auto) {
+      --spacing-#{$spacing}: auto;
+      // --spacing-auto: auto;
+    } @else {
+      --spacing-#{$spacing}: #{calc($spacing / 10)}rem;
+      // --spacing-160: 16rem;
+    }
+  }
+  @include media(xs) {
+    @each $spacing, $vw in $spacing-map {
+      @if $vw {
+        --spacing-#{$spacing}: #{$vw};
+        // --spacing-160: 24vw;
+      }
+    }
+  }
+  // // Spacing
+  // --spacing-160: 16rem;
+  // --spacing-120: 12rem;
+  // --spacing-104: 10.4rem;
+  // --spacing-96: 9.6rem;
+  // --spacing-88: 8.8rem;
+  // --spacing-80: 8rem;
+  // --spacing-72: 7.2rem;
+  // --spacing-64: 6.4rem;
+  // --spacing-56: 5.6rem;
+  // --spacing-48: 4.8rem;
+  // --spacing-40: 4rem;
+  // --spacing-32: 3.2rem;
+  // --spacing-24: 2.4rem;
+  // --spacing-16: 1.6rem;
+  // --spacing-12: 1.2rem;
+  // --spacing-8: 0.8rem;
+  // --spacing-4: 0.4rem;
+  // --spacing-2: 0.2rem;
+  // --spacing-0: 0;
+  // --spacing-auto: auto;
+  // @include media(xs) {
+  //   --spacing-160: 24vw;
+  //   --spacing-120: 20vw;
+  //   --spacing-104: 19vw;
+  //   --spacing-96: 18vw;
+  //   --spacing-88: 17vw;
+  //   --spacing-80: 16vw;
+  //   --spacing-72: 15vw;
+  //   --spacing-64: 14vw;
+  //   --spacing-56: 12vw;
+  //   --spacing-48: 10vw;
+  //   --spacing-40: 8vw;
+  //   --spacing-32: 6vw;
+  //   --spacing-24: 4vw;
+  //   --spacing-16: 3vw;
+  //   --spacing-12: 2vw;
+  // }
+
+  // Text
+  --font-primary: "Noto Sans TC", sans-serif;
+  --font-en: "Roboto", "Arial", sans-serif;
+
+  --text-4xl: 6.4rem;
+  --text-3xl: 3.6rem;
+  --text-2xl: 2.8rem;
+  --text-xl: 2.4rem;
+  --text-lg: 2rem;
+  --text-md: 1.8rem;
+  --text-body: 1.6rem;
+  --text-sm: 1.4rem;
+  --text-xs: 1.2rem;
+  @include media(xs) {
+    --text-4xl: 6.2rem;
+    --text-3xl: 2.8rem;
+    --text-2xl: 2.4rem;
+    --text-xl: 2.2rem;
+    --text-lg: 1.8rem;
+    --text-md: 1.7rem;
+  }
+
+  // Colors
+  --color-primary: #ef8322;
+  
+  --color-secondary: #96e881;
+  --color-secondary-mid: #B2E2A6;
+
+  --color-black: #292929;
+  --color-black-rgb: 41, 41, 41;
+  --color-black-80: rgba(var(--color-black-rgb), 0.8);
+  --color-black-20: rgba(var(--color-black-rgb), 0.2);
+
+  --color-gray: #464646;
+
+  --color-gray-mid: #9b9b9b;
+  --color-gray-mid-rgb: 155, 155, 155;
+  --color-gray-mid-40: rgba(var(--color-gray-mid-rgb), 0.4);
+
+  --color-gray-light: #f5f5f5;
+  --color-gray-light-rgb: 245, 245, 245;
+  --color-gray-light-80: rgba(var(--color-gray-light-rgb), 0.8);
+
+  --color-white: #fff;
+  --color-white-rgb: 255, 255, 255;
+  --color-white-40: rgba(var(--color-white-rgb), 0.4);
+}

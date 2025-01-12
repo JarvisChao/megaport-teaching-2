@@ -1,0 +1,73 @@
+.o-burger
+  cursor: pointer
+  z-index: 999
+  &:not(.is-opened):hover &
+    &__line
+      background-color: var(--color-primary)
+    &__line:nth-child(1)
+      width: 3rem
+    &__line:nth-child(2)
+      width: 5rem
+    &__line:nth-child(3)
+      width: 3rem
+  &__wrap
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    transition: 0.7s
+  &__line
+    +size(3.6rem, 2px)
+    margin-top: 0.8rem
+    background-color: var(--color-gray-light)
+    transition: width 0.7s, transform 0.7s
+    &:first-child
+      margin-top: 0
+
+  &.is-opened &
+    &__line
+      width: 4rem
+    &__line:nth-child(1)
+      transform: translateY(1rem) rotate(135deg)
+    &__line:nth-child(2)
+      width: 0
+    &__line:nth-child(3)
+      transform: translateY(-1rem) rotate(-135deg)
+  &.is-opened:hover &
+    &__wrap
+      transform: rotate(90deg)
+
+  +media(xs)
+    &:not(.is-opened):hover &
+      &__line:nth-child(1)
+        width: 2.5rem
+      &__line:nth-child(2)
+        width: 4rem
+      &__line:nth-child(3)
+        width: 2.5rem
+    &__line
+      width: 3rem
+      margin-top: 0.6rem
+    &.is-opened &
+      &__line
+        width: 3.6rem
+      &__line:nth-child(1)
+        transform: translateY(0.8rem) rotate(135deg)
+      &__line:nth-child(2)
+        width: 0
+      &__line:nth-child(3)
+        transform: translateY(-0.8rem) rotate(-135deg)
+
+
+// 波浪號，會選擇同層下面的兄弟元素
+#burger-switcher:checked ~ .o-burger
+  // 選擇到 .o-burger 裡面的 .o-burger__line
+  .o-burger
+    &__line
+      width: 4rem
+    &__line:nth-child(1)
+      transform: translateY(1rem) rotate(135deg)
+    &__line:nth-child(2)
+      width: 0
+    &__line:nth-child(3)
+      transform: translateY(-1rem) rotate(-135deg)
+

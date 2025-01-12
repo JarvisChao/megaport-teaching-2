@@ -1,0 +1,22 @@
+.c-artist-card
+  &__wrap
+    display: flex
+    flex-direction: column
+    &.--reverse
+      flex-direction: column-reverse
+    +media(md)
+      display: block
+      // &.--reverse
+      //   flex-direction: column
+
+.c-artist-card-2
+  max-width: 45rem
+  &.--lg
+    max-width: 56rem
+  &.--reverse &__wrap
+    flex-direction: column-reverse
+  &__wrap
+    display: flex
+    flex-direction: column
+    +media(md)
+      display: block

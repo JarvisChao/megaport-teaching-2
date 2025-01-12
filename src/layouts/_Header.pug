@@ -1,0 +1,76 @@
+//- header.l-header
+//-   .l-header__logo-mask
+//-     img(src="img/logo/logo.svg", alt="大港開唱 Logo")
+//-   nav.c-nav
+//-     ul.c-nav__btn-box
+//-       li.c-nav__btn-wrap
+//-         a.c-nav__btn(href="##") 演出陣容
+//-       li.c-nav__btn-wrap
+//-         a.c-nav__btn(href="##") 最新消息
+//-       li.c-nav__btn-wrap
+//-         a.c-nav__btn(href="##") 關於大港
+//-       li.c-nav__btn-wrap
+//-         a.c-nav__btn(href="##") 節目表
+//-       li.c-nav__btn-wrap
+//-         a.c-nav__btn(href="##") 購票資訊
+//-       li.c-nav__btn-wrap
+//-         a.c-nav__btn(href="##") 地圖導覽
+
+header.l-header
+  a.l-header__logo-mask(href=basePath)
+    img(src=`${basePath}/img/logo/logo.svg`, alt="大港開唱 Logo")
+
+  input#burger-switcher(type="checkbox" hidden)
+
+  //- button 標籤會影響 label 作用，所以直接改 label 標籤
+  //- button.o-burger.l-header__burger
+  label.o-burger.l-header__burger(for="burger-switcher")
+    .o-burger__wrap
+      .o-burger__line
+      .o-burger__line
+      .o-burger__line
+
+  nav.c-nav
+    .c-nav__menu
+      ul.c-nav__btn-box
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href=`${basePath}/#lineup`)
+            //- span.c-nav__text-en LINEUP
+            span.u-ff-en.u-text-lg LINEUP
+            span 演出陣容
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href=`${basePath}/news`)
+            //- span.c-nav__text-en NEWS
+            span.u-ff-en.u-text-lg NEWS
+            span 最新消息
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href=`${basePath}/#about`)
+            //- span.c-nav__text-en ABOUT
+            span.u-ff-en.u-text-lg ABOUT
+            span 關於大港
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="##")
+            //- span.c-nav__text-en TIMETABLE
+            span.u-ff-en.u-text-lg TIMETABLE
+            span 節目表
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="##")
+            //- span.c-nav__text-en TICKET
+            span.u-ff-en.u-text-lg TICKET
+            span 購票資訊
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href=`${basePath}/map.html`)
+            //- span.c-nav__text-en MAP
+            span.u-ff-en.u-text-lg MAP
+            span 地圖導覽
+
+      ul.c-nav__btn-box.--icon
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="##")
+            iconify-icon.u-icon.--md(icon="mingcute:facebook-fill")
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="##")
+            iconify-icon.u-icon.--md(icon="mingcute:ins-fill")
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="##")
+            iconify-icon.u-icon.--md(icon="mingcute:youtube-fill")

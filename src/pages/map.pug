@@ -1,0 +1,24 @@
+include ../layouts/_Settings.pug
+
+doctype html
+html(lang="en")
+  head
+    -
+      path = '/map.html';
+      pageTitle = '地圖導覽';
+      infoTitle = '地圖導覽後面的資訊標題';
+      //- description = '地圖導覽的網頁描述';
+      //- ogImage = '/img/og/og-map.jpg';
+    include ../layouts/_Head.pug
+  body
+    include ../layouts/_Header.pug
+
+    main
+      .l-hero-inner
+        h2.u-text-3xl MAP
+        
+      section.l-map
+        h2 MAP
+
+    include ../layouts/_Footer.pug
+    include ../layouts/_Scripts.pug

@@ -1,0 +1,44 @@
+.l-about
+  &::before
+    content: ''
+    display: block
+    position: absolute
+    right: 0
+    top: 0
+    +size(60%, 8rem)
+    transform-origin: right top
+    transform: skew(-35deg)
+    background-image: linear-gradient(to left, var(--color-gray-light-80) 0%, var(--color-gray-light-80) 50%, transparent, 50%, transparent 100%)
+    background-size: 14% 100%
+  &__img-mask
+    height: 100%
+    transform-origin: right bottom
+    transform: skew(35deg)
+    overflow: hidden
+  &__img
+    +size(100%)
+    transform-origin: right bottom
+    transform: skew(-35deg)
+    // background-image: url('../img/about/about.jpg')
+    // background-size: cover
+    // background-position: center center
+    transition: background 1s cubic-bezier(.23, .83, .7, 1)
+  &__content-wrap
+    padding: var(--spacing-40) 0 var(--spacing-80)
+  &__content:first-child
+    margin-left: -16rem
+
+  +media(sm)
+    &__img-mask
+      height: 60vw
+    &__content:first-child
+      margin-left: 0
+    &__content-wrap
+      padding-left: var(--section-spacing-x)
+
+  +media(xs)
+    &::before
+      +size(40%, 6rem)
+      background-size: 24% 100%
+    &__content-wrap
+      padding-top: var(--spacing-24)

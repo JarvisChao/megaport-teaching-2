@@ -1,0 +1,37 @@
+mixin NewsDetail(index)
+  include ../layouts/_Settings.pug
+  include ../db/_news-db.pug
+
+  doctype html
+  html(lang="en")
+    head
+      -
+        path = '/news';
+        pageTitle = newsList[index].title;
+        //- JS 用法 || 前面沒有值，就會吃後面的
+        infoTitle = newsList[index].infoTitle || '預設 news 資訊標題';
+        description = newsList[index].description || '預設 news 描述';
+        //- ogImage = 'img/og/og-map.jpg';
+      include ../layouts/_Head.pug
+    body
+      include ../layouts/_Header.pug
+
+      main
+        .l-hero-inner
+          h2.u-text-3xl NEWS
+
+        section.l-news-detail
+          .container
+            .l-news-detail__title-wrap
+              h1.u-text-lg #{newsList[index].title}
+            br
+            .u-img-ratio.l-news-detail__img-mask
+              img.u-object-fit.--abs(src=newsList[index].img, alt=newsList[index].title)
+              
+            //- .u-editor(v-html="")
+            .u-editor(v-html="")
+              //- != 是 pug 用來顯示 html 畫面的語法
+              !=newsList[index].content
+
+      include ../layouts/_Footer.pug
+      include ../layouts/_Scripts.pug

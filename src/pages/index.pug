@@ -1,0 +1,198 @@
+include ../layouts/_Settings.pug
+include ../db/_news-db.pug
+include ../db/_artist-db.pug
+include ../components/_Card.pug
+include ../components/_ArtistCard.pug
+include ../components/_Btn.pug  
+
+doctype html
+html(lang="en")
+  head
+    include ../layouts/_Head.pug
+  body
+    include ../layouts/_Header.pug
+                
+    main
+      //- div(class="l-hero")
+      .l-hero
+        .swiper.l-hero__swiper
+          .swiper-wrapper
+            .swiper-slide.l-hero__slide
+              .l-hero__img-mask
+                img.u-object-fit(src="img/banner/banner-img01.jpg", alt="大港開唱 hero 圖片")
+              h2.l-hero__slogan 這是 HERO 文字1
+            .swiper-slide.l-hero__slide
+              .l-hero__img-mask
+                img.u-object-fit(src="img/banner/banner-img02.jpg", alt="大港開唱 hero 圖片")
+              h2.l-hero__slogan 這是 HERO 文字2
+            .swiper-slide.l-hero__slide
+              .l-hero__img-mask
+                img.u-object-fit(src="img/banner/banner-img03.jpg", alt="大港開唱 hero 圖片")
+              h2.l-hero__slogan 這是 HERO 文字3
+
+      //- .l-lineup
+      //-   section.u-pb-0
+      //-     .container.--sm
+      //-       //- h2.u-text-4xl.u-color-secondary LINEUP
+      //-       //-   span.u-inline(style="color: red") fdshjfkds
+      //-       //-   | QWEWQE
+      //-       h2.o-section-title LINEUP
+      //-         span.u-text-lg MEGAPORT FESTIVAL
+
+      //-   section.u-p-0
+      //-     .container-fluid.u-px-0
+      //-       .row.--no-gap
+      //-         .col-md-6
+      //-           article.c-artist-card
+      //-             a.c-artist-card__wrap(href="##")
+      //-               h3.u-text-xl.u-fw-900 9m88
+      //-               .c-artist-card__img-mask
+      //-                 img(src="img/lineup/lineup01.jpg", alt="9m88")
+      //-         .col-md-6
+      //-           article.c-artist-card
+      //-             a.c-artist-card__wrap(href="##")
+      //-               h3.u-text-xl.u-fw-900 恆月三途
+      //-               .c-artist-card__img-mask
+      //-                 img(src="img/lineup/lineup02.jpg", alt="恆月三途")
+      //-         .col-lg-4.col-md-6
+      //-           article.c-artist-card
+      //-             a.c-artist-card__wrap.--reverse(href="##")
+      //-               h3.u-text-xl.u-fw-900 Beyound Cure
+      //-               .c-artist-card__img-mask
+      //-                 img(src="img/lineup/lineup03.jpg", alt="Beyound Cure")
+      //-         .col-lg-4.col-md-6
+      //-           article.c-artist-card
+      //-             a.c-artist-card__wrap.--reverse(href="##")
+      //-               h3.u-text-xl.u-fw-900 Dudu King
+      //-               .c-artist-card__img-mask
+      //-                 img(src="img/lineup/lineup04.jpg", alt="Dudu King")
+      //-         .col-lg-4.col-md-6
+      //-           article.c-artist-card
+      //-             a.c-artist-card__wrap.--reverse(href="##")
+      //-               h3.u-text-xl.u-fw-900 Da Wang
+      //-               .c-artist-card__img-mask
+      //-                 img(src="img/lineup/lineup05.jpg", alt="Da Wang")
+
+      section#lineup.--gradient.l-lineup
+        .container
+          h2.o-section-title LINEUP-2
+            span.u-text-lg MEGAPORT FESTIVAL
+
+          .row.--gap-md
+            //- .l-lineup__wrap 用來控制 max-width 卡片的位置
+            each item, index in artistList
+              -
+                let col = 'col-lg-4 col-md-6';
+                if (index === 0) col = 'col-md-5'
+                if (index === 1) col = 'col-md-7'
+              .l-lineup__wrap(class=col)
+                +ArtistCard(item)
+
+      section#news.l-home-news
+        button.l-home-news__swiper-btn.--prev
+          iconify-icon.u-icon(icon="fa-solid:arrow-left")
+        button.l-home-news__swiper-btn.--next
+          iconify-icon.u-icon(icon="fa-solid:arrow-right")
+
+        .container
+          h2.o-section-title.u-text-center
+            span NEWS
+            span.u-text-lg MEGAPORT FESTIVAL
+
+          .swiper.l-home-news__swiper
+            .swiper-wrapper
+              //- 本身是 pug 語法，所以前面不用加 - 橫線
+              each item, index in newsList
+                .swiper-slide.l-home-news__slide
+                  +Card(item, index)
+
+              //- - for (let i = 0; i < newsList.length; i++)
+              //-   .swiper-slide.l-home-news__slide
+              //-     +Card(newsList[i], i)
+
+      section#about.--gradient.l-about
+        .container
+          .u-mb-80
+            h2.u-text-4xl.u-color-secondary ABOUT
+              span.u-text-lg MEGAPORT FESTIVAL
+
+        .container.--align-left
+          .row
+            .col-md-7.order-md-0.order-2
+              .l-about__img-mask
+                img.u-object-fit.l-about__img(src="img/about/about.jpg", alt="關於大港")
+            .col-md-5.order-md-0.order-1
+              .l-about__content-wrap
+                .l-about__content.u-mb-64
+                  h3.u-text-2xl.u-mb-16 2022 年即將邁入第十三屆的《大港開唱》
+                  p.u-fw-500 每年三月於高雄舉辦的大型音樂祭典，受到全台灣及日本香港年輕觀眾的喜愛，近年已成為台灣最具指標性的大型戶外音樂祭活動。
+                .l-about__content
+                  h3.u-text-2xl.u-mb-16 「人生」與「音樂」
+                  p.u-fw-500 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。也因如此，大港總是邀請有著豐富人生歷程的知名藝人及業界前輩演出，也會與新一代的樂團或藝人一起合作演出，交融出世代之間的化學效應，往往成為當年度為人津津樂道的經典現場...
+                .u-mt-64
+                  +Btn({
+                    href: 'about.html',
+                    align: 'right'
+                  }) 前往關於
+    include ../layouts/_Footer.pug
+    //- 共用 scripts
+    include ../layouts/_Scripts.pug
+
+    //- 只屬於這個頁面的 scripts
+    //- <script>
+    //-   //
+    //- </script>
+    //- pug 要寫 script 後面要給一個點
+    script.
+      //- new Swiper('.l-hero__swiper', {})
+      const heroSwiper = new Swiper('.l-hero__swiper', {
+        effect: 'fade',
+        fadeEffect: {
+          // 取消重疊效果
+          crossFade: true,
+        },
+        // 緩慢施放
+        longSwipesRatio: 0.1,
+        loop: true,
+        // 類似 duration
+        speed: 1200,
+        autoplay: {
+          delay: 4000,
+          // 滑鼠有拖動輪播圖，是否停止自動輪播
+          // false 不受影響
+          disableOnInteraction: false,
+        },
+      });
+
+    script.
+      const newsSwiper = new Swiper('.l-home-news__swiper', {
+        longSwipesRatio: 0.1,
+        loop: true,
+        // auto 我們可以用 css 控制 slide 的寬度
+        slidesPerView : 'auto',
+        //- spaceBetween: 12,
+        // 讓 active 的 slide 置中
+        centeredSlides: true,
+        speed: 1200,
+        breakpoints: {
+          576: {
+            //- slidesPerView : 2,
+            //- spaceBetween: 16,
+            centeredSlides: false,
+          },
+          992: {
+            //- slidesPerView : 3,
+            //- spaceBetween: 20,
+            centeredSlides: false,
+          },
+          1400: {
+            //- slidesPerView : 4,
+            //- spaceBetween: 24,
+            centeredSlides: false,
+          }
+        },
+        navigation: {
+          prevEl: '.l-home-news__swiper-btn.--prev',
+          nextEl: '.l-home-news__swiper-btn.--next',
+        }
+      });

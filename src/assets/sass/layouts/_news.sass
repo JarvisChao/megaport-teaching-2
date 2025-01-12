@@ -1,0 +1,54 @@
+.l-home-news
+  &__swiper
+    // 避免 card 上下陰影被吃掉
+    padding: 1rem 0
+  &__slide
+    --width: 25%
+    --gap: var(--spacing-24)
+    --slides-per-view: 4
+    // 為了保持 flex stretch 特性，需取消插件預設 100%
+    height: auto
+    width: calc(var(--width) - var(--gap) + var(--gap) / var(--slides-per-view))
+    margin-right: var(--gap)
+  &__swiper-btn
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    padding: var(--spacing-16)
+    background-color: var(--color-gray-light)
+    font-size: 1.8rem
+    line-height: 1
+    color: var(--color-gray-mid)
+    z-index: 10
+    transition: 0.3s
+    &:hover
+      background-color: var(--color-black)
+      color: var(--color-secondary)
+      box-shadow: 0 0 4px var(--color-black-80)
+    &:active
+      background-color: var(--color-secondary)
+      color: var(--color-black)
+      box-shadow: 0 0 4px var(--color-gray-light-80)
+    &.--prev
+      left: 0
+      border-radius: 0 var(--spacing-16) var(--spacing-16) 0
+    &.--next
+      right: 0
+      border-radius: var(--spacing-16) 0 0 var(--spacing-16)
+  +media(xl)
+    &__slide
+      --width: 33.3333%
+      --slides-per-view: 3
+  +media(md)
+    &__slide
+      --width: 50%
+      --gap: var(--spacing-16)
+      --slides-per-view: 2
+  +media(xs)
+    &__slide
+      --width: 80%
+      --gap: var(--spacing-12)
+      --slides-per-view: 1
+      // width: 80% !important
+      // margin-right: var(--spacing-12)
+      

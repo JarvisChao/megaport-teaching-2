@@ -1,0 +1,81 @@
+.l-footer
+  &__date-mask
+    padding: var(--spacing-160) 4vw
+    background-image: url('../img/footer/footer-bg.jpg')
+    background-size: cover
+    background-position: center center
+    text-align: center
+  &__img-date
+    max-width: 30rem
+  &__menu
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: var(--spacing-40) 4vw
+    background-color: var(--color-primary)
+  &__btn-box
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    margin-top: -0.5rem
+  &__btn-wrap
+    margin-top: 0.5rem
+    &:not(:last-child)
+      margin-right: var(--spacing-24)
+  // 調整當前頁面樣式
+  &__btn.is-active
+    color: var(--color-secondary)
+  &__btn:hover &
+    &__text.--en
+      opacity: 0
+    &__text.--zh
+      color: var(--color-secondary)
+      opacity: 1
+  &__text
+    font-weight: 700
+    text-align: center
+    white-space: nowrap
+    transition: color 0.3s, opacity 0.3s
+    &.--zh
+      position: absolute
+      left: 50%
+      top: 50%
+      transform: translate(-50%, -50%)
+      font-family: var(--font-primary)
+      opacity: 0
+  &__link-box
+    display: flex
+    align-items: center
+  &__link-wrap
+    transition: color 0.3s
+    &:hover
+      color: var(--color-secondary)
+    &:not(:last-child)
+      margin-right: var(--spacing-16)
+
+  +media(xs)
+    &__img-date
+      max-width: 24rem
+
+// 因為只會在 footer 出現，所以直接放在 footer sass 檔案裡
+.o-gotop
+  display: inline-block
+  position: absolute
+  left: 50%
+  top: 0
+  transform: translate(-50%, -30%)
+  padding: var(--spacing-8)
+  border-radius: var(--spacing-8)
+  border: 2px solid var(--color-primary)
+  box-shadow: 0 0 4px var(--color-primary)
+  color: var(--color-primary)
+  text-align: center
+  user-select: none
+  cursor: pointer
+  z-index: 10
+  transition: background-color 0.3s, color 0.3s
+  &:hover
+    background-color: var(--color-primary)
+    color: var(--color-black)
+  &__text
+    font-weight: 900

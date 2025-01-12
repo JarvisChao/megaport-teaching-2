@@ -1,0 +1,30 @@
+include ../../layouts/_Settings.pug
+include ../../db/_news-db.pug
+include ../../components/_Card.pug
+
+doctype html
+html(lang="en")
+  head
+    -
+      path = '/news';
+      pageTitle = '消息列表';
+      infoTitle = '消息列表後面的資訊標題';
+      description = '消息列表的網頁描述';
+      //- ogImage = 'img/og/og-map.jpg';
+    include ../../layouts/_Head.pug
+  body
+    include ../../layouts/_Header.pug
+
+    main
+      .l-hero-inner
+        h2.u-text-3xl NEWS
+
+      section.l-news
+        .container
+          .row.--gap
+            each item, index in newsList
+              .col-md-4
+                +Card(item, index)
+
+    include ../../layouts/_Footer.pug
+    include ../../layouts/_Scripts.pug

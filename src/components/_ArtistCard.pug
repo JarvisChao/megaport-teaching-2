@@ -1,0 +1,21 @@
+mixin ArtistCard(options)
+  -
+    const props = Object.assign({
+      // 預設值
+      name: '',
+      img: '',
+      direction: '', // reverse
+      size: '', // md, lg
+      link: '##'
+    }, options);
+
+    const classes = [
+      props.size ? `--${props.size}` : '',
+      props.direction ? `--${props.direction}` : ''
+    ];
+
+  article.c-artist-card-2(class=classes.join(' '))
+    a.c-artist-card-2__wrap(href=props.link)
+      h3.u-text-xl.u-fw-900 #{props.name}
+      .c-artist-card-2__img-mask
+        img(src=props.img, alt=props.name)

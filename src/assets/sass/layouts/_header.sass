@@ -1,0 +1,158 @@
+.l-header
+  display: flex
+  align-items: center
+  justify-content: space-between
+  position: sticky
+  top: 0
+  padding-left: 4vw
+  background-color: var(--color-black)
+  z-index: 99
+  +media(xl)
+    padding: var(--spacing-16) 4vw
+  &__logo-mask
+    max-width: 19.2rem
+    // max-height: 4.8rem
+  &__burger
+    display: none
+    +media(xl)
+      display: block
+
+#burger-switcher:checked ~ .c-nav
+  opacity: 1
+  pointer-events: auto
+  
+.c-nav
+  +media(xl)
+    position: fixed
+    left: 0
+    top: 0
+    // width: 100%
+    // height: 100vh
+    +size(100%, 100vh)
+    background-color: var(--color-black-80)
+    overflow: auto
+    opacity: 0
+    // 因為 opacity 只是控制不顯示
+    // 實際內容還是會被點按到
+    // 所以加上 pointer-events: none 去取消滑鼠對這區塊的作用
+    pointer-events: none
+    transition: opacity 0.5s
+    &.is-opened
+      opacity: 1
+      pointer-events: auto
+  &__menu
+    display: flex
+    +media(xl)
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      // 讓高度縮小時，上面文字不會被吃掉
+      min-height: 100%
+      padding: var(--spacing-64) 4vw
+  &__btn-box
+    display: flex
+    // 示範用
+    // +media(xxl)
+    //   display: block
+    +media(sm)
+      &:not(.--icon)
+        flex-direction: column
+        align-items: center
+        text-align: center
+  &__btn-box.--icon
+    +media(xl)
+      margin-top: var(--spacing-24)
+  &__btn-box.--icon &__btn
+    display: flex
+    align-items: center
+    height: 100%
+    padding-left: 1.2vw
+    padding-right: 1.2vw
+    background-color: var(--color-gray-mid-40)
+    &::before, &::after
+      --gradient-color: var(--color-secondary)
+    +media(xl)
+      color: var(--color-gray-light)
+      background-color: transparent
+      &::after
+        display: none
+      
+  // &__btn-wrap
+  //   +media(xl)
+  //     &:first-child .c-nav__btn::after
+  //       display: none
+
+  +media(xl)
+    &__btn-wrap:first-child &__btn::after
+      display: none
+        
+  &__btn
+    padding: var(--spacing-24) 3.2vw
+    // border-left: 1px solid var(--color-gray-light)
+    line-height: 1.2
+    color: var(--color-gray-mid)
+    // 因為 a 標籤有設定預設 hover 顏色繼承
+    // 所以有自動套到 hover 時的 var(--color-gray-light)
+    transition: color 0.3s
+    // 離原樣式近，設定起來直觀(預處理器的優勢)
+    // 缺點是編譯成 css 後會有很多個 @media，但其實佔的容量影響不大
+    +media(xxl)
+      padding-left: 2.6vw
+      padding-right: 2.6vw
+    +media(sm)
+      padding: var(--spacing-16) 4vw
+
+    // &:hover
+    //   color: var(--color-black)
+    //   &::before
+    //     opacity: 1
+    &:hover::before
+      opacity: 1
+      // transition: opacity 0.3s
+    &::before, &::after
+      // 預設顏色變數
+      --gradient-color: var(--color-gray-mid)
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      height: 100%
+      background-image: linear-gradient(to bottom, var(--gradient-color), transparent)
+    &::before
+      // 改變漸層變數顏色
+      --gradient-color: var(--color-primary)
+      // background-image: linear-gradient(to bottom, var(--color-primary), transparent)
+      width: 100%
+      opacity: 0
+      transition: opacity 0.3s
+    &::after
+      width: 1px
+      +media(sm)
+        display: none
+
+  // 會離原樣式比較遠
+  // +media(xxl)
+  //   // 等於設定 .c-nav
+  //   padding: 24px
+  //   &__btn-box
+  //     //
+  //   &__btn
+  //     padding-left: 2.4vw
+  //     padding-right: 2.4vw
+
+// 會離原樣式比較遠
+// +media(xxl)
+//   .c-nav
+//     &__btn-box
+//       display: block
+//     &__btn
+//       padding-left: 2.4vw
+//       padding-right: 2.4vw
+
+// 沒有預處理器的情況
+// @media (max-width: 1599.98px) {
+//   .c-nav {
+//     //
+//   }
+// }

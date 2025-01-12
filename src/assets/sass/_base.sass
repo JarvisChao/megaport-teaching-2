@@ -1,0 +1,118 @@
+*, *::before, *::after
+  position: relative
+  box-sizing: border-box
+
+html
+  font-size: calc(16px / 1.6)
+  // @media (max-width: 1199.98px)
+  //   font-size: calc(15px / 1.6)
+  +media(lg)
+    font-size: calc(15px / 1.6)
+  +media(ipad)
+    font-size: calc(14px / 1.6)
+
+body
+  margin: 0
+  background-color: var(--color-gray-mid)
+  background-image: url('../img/bg-dots.png')
+  font-family: var(--font-primary)
+  font-size: 1.6rem
+  font-weight: 400
+  // IOS 文字去毛邊
+  -webkit-font-smoothing: antialiased
+  letter-spacing: 0.1rem
+  line-height: 1.7
+  color: var(--color-gray-light)
+
+/* ----------------------------------- */
+/* ------ Reset ------ */
+/* ----------------------------------- */
+a, button, input, label, select, textarea
+  // 雙點擊防止畫面放大
+  -ms-touch-action: manipulation
+  touch-action: manipulation
+a, button
+  display: block
+  text-decoration: none
+  color: inherit
+  user-select: none
+  &:hover
+    text-decoration: none
+    color: inherit
+button
+  padding: 0
+  border: none
+  background: none
+img
+  max-width: 100%
+  max-height: 100%
+ul
+  list-style: none
+  padding: 0
+  margin: 0
+
+h1, h2, h3, h4, h5, h6, p, button
+  margin: 0
+  // 避免受插件影響
+  font-family: inherit
+  font-size: inherit
+  font-weight: inherit
+  line-height: inherit
+  color: inherit
+h1, h2, h3, h4, h5, h6
+  font-weight: 500
+
+span
+  // 我們常用 span 當小字標籤
+  display: block
+  // 避免受插件影響
+  line-height: inherit
+
+/* ----------------------------------- */
+/* ------ Layouts ------ */
+/* ----------------------------------- */
+section
+  --section-spacing-x: 8vw
+  --section-spacing-y: var(--spacing-120)
+  padding: var(--section-spacing-y) var(--section-spacing-x)
+  &.--gradient
+    background-image: linear-gradient(to bottom, var(--color-black) 0%, transparent 70%)
+
+.container
+  --section-width: 100vw
+  --container-width: 152rem
+  // max-width: 1520px
+  max-width: var(--container-width)
+  &.--sm
+    --container-width: 132rem
+  &[class*="--align"]
+    // 減回去 section padding 空間
+    --edge-fill: calc(-1 * var(--section-spacing-x))
+
+    // 移除預設 100%，使 container 寬度不侷限在 section padding 裡
+    width: auto
+    // |----------||----------| section 寬
+    //        |---||---|        container 最大寬
+    // |----------||---|        section 寬 / 2 + container 最大寬 / 2
+    // section 一半 + container 最大寬的一半 - container 預設 padding
+    max-width: calc(var(--section-width) / 2 + var(--container-width) / 2)
+    .row
+      --bs-gutter-x: 0
+  &.--align-left
+    padding-left: 0
+    margin-left: var(--edge-fill)
+    
+  &.--align-right
+    padding-right: 0
+    margin-right: var(--edge-fill)
+
+.row
+  &.--no-gap
+    --bs-gutter-x: 0
+    --bs-gutter-y: 0
+  &.--gap-md
+    --bs-gutter-x: var(--spacing-32)
+    --bs-gutter-y: var(--spacing-32)
+  &.--gap
+    --bs-gutter-x: var(--spacing-24)
+    --bs-gutter-y: var(--spacing-24)
