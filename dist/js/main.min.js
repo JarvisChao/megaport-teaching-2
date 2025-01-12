@@ -1,0 +1,1 @@
+const lenis=new Lenis({autoRaf:!0});
